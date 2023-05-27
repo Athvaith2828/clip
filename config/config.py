@@ -14,4 +14,10 @@ val_set = os.path.join(data_path, 'val_set.csv')
 
 test_set = os.path.join(data_path, 'test_set.csv')
 
+image_size = 256
+
+text_tokenizer = 'distilbert-base-uncased'
+
+max_length = 200
+
 train_debug = False
