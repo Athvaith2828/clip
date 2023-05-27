@@ -14,7 +14,7 @@ val_set = os.path.join(data_path, 'val_set.csv')
 
 test_set = os.path.join(data_path, 'test_set.csv')
 
-image_size = 256
+image_size = 224
 
 text_tokenizer = 'distilbert-base-uncased'
 
