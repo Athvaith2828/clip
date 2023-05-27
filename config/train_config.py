@@ -1,8 +1,22 @@
 import os
 
-import config as cg
+from config import config as cg
 
-batch_size = 512
+batch_size = 32
+
+head_lr = 1e-3
+
+image_encoder_lr = 1e-4
+
+text_encoder_lr = 1e-5
+
+weight_decay = 1e-3
+
+patience = 1
+
+factor = 0.8
+
+epochs = 2
 
 n_worker = int(os.cpu_count())
 
@@ -14,3 +28,5 @@ if not isExist:
     os.makedirs(model_path)
 
 model_path = os.path.join(model_path,'best.pt')
+
+mapping_path = os.path.join(cg.data_path,'model/mapping.pht')
