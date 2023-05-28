@@ -1,6 +1,7 @@
 import pandas as pd
 import torch
 from tqdm import tqdm
+from loguru import logger
 
 from config import config as cg
 from config import train_config as tcg
@@ -9,10 +10,16 @@ from data_loader.main import loader
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+logger.add(f'{cg.log_path}/embedding.log')
+
 def main():
 
+    logger.info("Reading training data...")
     df = pd.read_csv(cg.train_set)
 
+    logger.info(f"Total datapoints {len(df)}")
+
+    logger.info("Loading the model....")
     model = clip().to(device)
 
     model.load_state_dict(torch.load(tcg.model_path, map_location=device))
@@ -26,6 +33,8 @@ def main():
     total_image_embeddings = []
 
     total_text_embeddings = []
+
+    logger.info("Getting Embedddings for training data")
 
     model.eval()
 
@@ -45,6 +54,8 @@ def main():
 
     total_text_embeddings = torch.cat(total_text_embeddings)
 
+    logger.info("Storing the mapping dict....")
+
     mappings = {}
 
     mappings['image_filename'] = image_file
@@ -56,6 +67,8 @@ def main():
     mappings['text_embeddings'] = total_text_embeddings
 
     torch.save(mappings, tcg.mapping_path)
+
+    logger.info("Done")
 
 if __name__ == "__main__":
     main()
