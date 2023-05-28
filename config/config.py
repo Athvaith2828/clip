@@ -6,6 +6,8 @@ data_path = os.path.join(working_directory, 'data')
 
 image_path = os.path.join(working_directory, data_path, 'image')
 
+log_path = os.path.join(working_directory, 'logs')
+
 caption_path = os.path.join(working_directory, data_path, 'captions.csv')
 
 train_set = os.path.join(data_path, 'train_set.csv')
