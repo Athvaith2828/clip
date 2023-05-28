@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 from config import config as cg
 from config import train_config as tcg
-from model import clip
+from model.model import clip
 
 from data_loader.main import loader
 
