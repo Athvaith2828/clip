@@ -18,6 +18,10 @@ factor = 0.8
 
 epochs = 2
 
+early_epoch = 2
+
+early_stop_patience = 2
+
 n_worker = int(os.cpu_count())
 
 model_path = os.path.join(cg.data_path, 'model')
@@ -27,6 +31,8 @@ isExist = os.path.exists(model_path)
 if not isExist:
     os.makedirs(model_path)
 
-model_path = os.path.join(model_path,'best.pt')
+model_path = os.path.join(model_path, 'best.pt')
 
-mapping_path = os.path.join(cg.data_path,'model/mapping.pth')
+mapping_path = os.path.join(cg.data_path, 'model/mapping.pth')
+
+plot_fig = os.path.join(cg.data_path, 'model/loss.png')
