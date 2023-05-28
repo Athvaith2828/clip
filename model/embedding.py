@@ -40,7 +40,7 @@ def main():
 
     with torch.no_grad():
         for batch in tqdm(train_loader):
-
+            batch = {k: v.to(device) for k, v in batch.items() if k != 'caption'}
             image_feature = model.image_encoder(batch['image'].to(device))
             image_embeddings = model.image_projection(image_feature)
             total_image_embeddings.append(image_embeddings)
