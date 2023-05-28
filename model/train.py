@@ -15,6 +15,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 logger.add(f'{cg.log_path}/train.log')
 
+logger.info(f"Using {device}")
+
 class AvgMeter:
     def __init__(self, name="Metric"):
         self.name = name
