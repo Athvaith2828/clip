@@ -29,4 +29,4 @@ if not isExist:
 
 model_path = os.path.join(model_path,'best.pt')
 
-mapping_path = os.path.join(cg.data_path,'model/mapping.pht')
+mapping_path = os.path.join(cg.data_path,'model/mapping.pth')
