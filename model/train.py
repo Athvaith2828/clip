@@ -129,7 +129,7 @@ def main():
                 early_stop_counter >=  tcg.early_stop_patience):
             logger.info(f"val loss is not improved in {tcg.early_stop_patience} epochs"
                         f"Early stopping ......")
-        break
+            break
 
     x = range(1,len(total_train_loss)+1)
     plt.plot(x, total_train_loss, label='avg_train_loss')
