@@ -13,7 +13,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 logger.add(f'{cg.log_path}/embedding.log')
 
 def main():
-
+    '''
+     This function helps to store the embeddings of the train data after the model is trained.
+    :return:
+    '''
     logger.info("Reading training data...")
     df = pd.read_csv(cg.train_set)
 
