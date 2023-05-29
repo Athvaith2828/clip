@@ -38,7 +38,15 @@ def get_lr(optimizer):
     for param_group in optimizer.param_groups:
         return param_group["lr"]
 def train(model,  train_loader, optimizer, lr_scheduler, step):
+    '''
 
+    :param model: clip model
+    :param train_loader: train data
+    :param optimizer: adam
+    :param lr_scheduler: learning rate
+    :param step: for lr_scheduler
+    :return:
+    '''
     loss_meter = AvgMeter()
     tqdm_object = tqdm(train_loader, total=len(train_loader))
     for batch in tqdm_object:
@@ -56,7 +64,12 @@ def train(model,  train_loader, optimizer, lr_scheduler, step):
     return loss_meter
 
 def validation(model, val_loader):
-
+    '''
+     This Function is used to pass validation set to model to get val loss
+    :param model: clip model
+    :param val_loader: val_data
+    :return: val_loss
+    '''
     loss_meter = AvgMeter()
 
     tqdm_object = tqdm(val_loader, total=len(val_loader))
@@ -70,7 +83,10 @@ def validation(model, val_loader):
     return loss_meter
 
 def main():
-
+    '''
+    This function is used to train the clip model
+    :return:
+    '''
     logger.info("Starting training....")
 
     train_df = pd.read_csv(cg.train_set)

@@ -80,7 +80,10 @@ def loader(dataframe, mode='Train'):
     return dataloader
 
 def main():
-
+    '''
+    This is used to prepare train,validation,test sets
+    :return:
+    '''
     logger.info('Reading captions csv....')
 
     dataframe = pd.read_csv(config.caption_path)
