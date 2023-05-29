@@ -23,3 +23,7 @@ text_tokenizer = 'distilbert-base-uncased'
 max_length = 200
 
 train_debug = False
+
+database_path = r'C:\Users\shobi\Desktop\inkers\clip\data\image'
+
+upload_path = r'C:\Users\shobi\Desktop\inkers\clip\interface\uploads'
