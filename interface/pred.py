@@ -94,10 +94,13 @@ def main(file_names):
 
     image_embeddings = []
 
-    for batch in tqdm(data_loader):
-        image_feature = model.image_encoder(batch[0])
-        image_feature = model.image_projection(image_feature)
-        image_embeddings.append(image_feature)
+    model.eval()
+
+    with torch.no_grad():
+        for batch in tqdm(data_loader):
+            image_feature = model.image_encoder(batch[0])
+            image_feature = model.image_projection(image_feature)
+            image_embeddings.append(image_feature)
     image_embeddings = torch.cat(image_embeddings)
     caps = caption(image_embeddings)
     logger.info(caps)
