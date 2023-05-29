@@ -16,9 +16,9 @@ patience = 1
 
 factor = 0.8
 
-epochs = 2
+epochs = 10
 
-early_epoch = 2
+early_epoch = 5
 
 early_stop_patience = 2
 
